@@ -1,18 +1,20 @@
+#include <bits/stdc++.h>
 
-#include <iostream> 
+int getNo(){
 
-void doPrint()   // Function Definition
-{
-    std::cout << "In doPrint()\n";
+    int n {};
+    
+    std::cout << "Enter an Integer : ";
+    std::cin >> n;
+
+    return n;
 }
 
 int main()
 {
-    std::cout << "Starting main()\n";
+    int num {getNo()};
 
-    doPrint();    // Function Call
-
-    std::cout << "Ending main()\n"; 
+    std::cout << "The Entered Number is : " << num << std::endl;
 
     return 0;
 }

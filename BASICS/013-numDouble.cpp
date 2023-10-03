@@ -6,9 +6,10 @@ int main()
 
     int n{};
     std::cin >> n;
-
+    
+    // Printing the outputs
+    
     std::cout << "The Integer is : " << n << "\n";
-
     std::cout << "Double of "<< n << " is : " << (n*2) << "\n";   
     std::cout << "Triple of "<< n << " is : " << (n*3) << "\n";
     

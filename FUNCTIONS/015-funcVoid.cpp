@@ -1,6 +1,5 @@
 #include <iostream>
 
-// void means the function does not return a value to the caller
 void printHi()
 {
     std::cout << "Hi" << '\n';

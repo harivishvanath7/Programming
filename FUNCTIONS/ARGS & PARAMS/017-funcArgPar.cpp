@@ -14,3 +14,5 @@ int main()
 
     return 0;
 }
+
+// NOTE:-  no of arguments = no of function parameters

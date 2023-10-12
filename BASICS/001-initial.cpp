@@ -1,10 +1,7 @@
-// header file
 #include <iostream>
 
-// main function 
 int main()
 {
-    std::cout << "Hello World!!";
-    
+    std::cout << "Hello world!"; // when we say cout, we mean the cout defined in the std namespace
     return 0;
 }

@@ -12,7 +12,7 @@ std::cerr << "getUserInput() called\n";
 int main()
 {
 std::cerr << "main() called\n";
-    int x{ getUserInput() };
+    short x{ 240 };
     std::cout << "You entered: " << x << '\n';
 
     return 0;

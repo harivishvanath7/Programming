@@ -1,6 +1,6 @@
 # C++ Programming Repository
 
-Welcome to my C++ programming repository! This repository contains a collection of C++ code examples, tutorials, and projects covering a wide range of topics, from basic concepts to advanced topics.
+Welcome to my C++ programming repository! This repository contains a collection of my C++ code examples, tutorials, and projects covering a wide range of topics, from basic concepts to advanced topics.
 
 ## Table of Contents
 

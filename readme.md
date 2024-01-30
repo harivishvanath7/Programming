@@ -11,7 +11,6 @@ Welcome to my C++ programming repository! This repository contains a collection 
 5. [Advanced Topics](#advanced-topics)
 6. [Projects](#projects)
 7. [Contributing](#contributing)
-8. [License](#license)
 
 ## Introduction
 

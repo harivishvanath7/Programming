@@ -14,7 +14,7 @@ Welcome to my C++ programming repository! This repository contains a collection 
 
 ## Introduction
 
-This repository serves as A learning resource for anyone interested in C++ programming. Whether you're a beginner looking to get started with C++ or an experienced developer seeking to deepen your knowledge, you'll find valuable content here.
+This repository serves as A learning resource for anyone interested in C++ programming. Whether you're a beginner looking to get started with C++ or an experienced developer seeking to deepen your knowledge, you'll find many valuable contents here.
 
 ## Getting Started
 

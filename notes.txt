@@ -1,0 +1,326 @@
+Diff bet Initialization and Assignment:
+
+-> Initialization gives a variable an initial value at the point when it is created. 
+-> Assignment gives a variable a value at some point after the variable is created.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+std::endl vs "\n"
+
+->  Using std::endl can be a bit inefficient, as it actually does two jobs: it moves the cursor to the next line of the console, 
+    and it flushes the buffer. When writing text to the console, we typically don’t need to flush the buffer at the end of each line. 
+
+->  It’s more efficient to let the system flush itself periodically (which it has been designed to do efficiently).
+    Because of this, use of the ‘\n’ character is typically preferred instead. The ‘\n’ character moves the cursor to
+    the next line of the console, but doesn’t request a flush, so it will often perform better. The ‘\n’ character also 
+    tends to be easier to read since it’s both shorter and can be embedded into existing text.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Initialization = The object is given a known value at the point of definition.
+>>> int a = 25;
+
+Assignment = The object is given a known value beyond the point of definition.
+>>> int s;
+>>> s = 7;
+
+Uninitialized = The object has not been given a known value yet.
+>>> int d;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Undefined behavior
+
+--> Using the value from an uninitialized variable is our first example of undefined behavior. 
+    Undefined behavior (often abbreviated UB) is the result of executing code whose behavior is 
+    not well-defined by the C++ language. 
+
+--> In this case, the C++ language doesn’t have any rules determining 
+    what happens if you use the value of a variable that has not been given a known value. Consequently, if 
+    you actually do this, undefined behavior will result.
+
+
+
+Code implementing undefined behavior may exhibit any of the following symptoms:
+
+    --> Your program produces different results every time it is run.
+    --> Your program consistently produces the same incorrect result.
+    --> Your program behaves inconsistently (sometimes produces the correct result, sometimes not).
+    --> Your program seems like it’s working but produces incorrect results later in the program.
+    --> Your program crashes, either immediately or later.
+    --> Your program works on some compilers but not others.
+    --> Your program works until you change some other seemingly unrelated code.
+    --> Or, your code may actually produce the correct behavior anyway.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Implementation-defined behavior 
+
+Implementation-defined behavior means the behavior of some syntax is left up to the implementation (the compiler) to define. 
+Such behaviors must be consistent and documented, but different compilers may produce different results.
+
+
+Unspecified behavior
+
+Unspecified behavior is almost identical to implementation-defined behavior in that the behavior is left up 
+to the implementation, but the implementation is not required to document the behavior.
+
+
+
+
+
+--> We generally want to avoid implementation-defined and unspecified behavior, as it means our program may 
+    not work as expected if compiled on a different compiler (or even on the same compiler if we change the
+    project settings that affect how the implementation behaves!)
+
+--> Avoid implementation-defined and unspecified behavior whenever possible, as they may cause your program 
+    to malfunction on other implementations.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+                                        ----------------------KEYWORDS IN C++-------------------------
+
+
+alignas
+alignof
+and
+and_eq
+asm
+auto
+bitand
+bitor
+bool
+break
+case
+catch
+char
+char8_t (since C++20)
+char16_t
+char32_t
+class
+compl
+concept (since C++20)
+const
+consteval (since C++20)
+constexpr
+constinit (since C++20)
+const_cast
+continue
+co_await (since C++20)
+co_return (since C++20)
+co_yield (since C++20)
+decltype
+default
+delete
+do
+double
+dynamic_cast
+else
+enum
+explicit
+export
+extern
+false
+float
+for
+friend
+goto
+if
+inline
+int
+long
+mutable
+namespace
+new
+noexcept
+not
+not_eq
+nullptr
+operator
+or
+or_eq
+private
+protected
+public
+register
+reinterpret_cast
+requires (since C++20)
+return
+short
+signed
+sizeof
+static
+static_assert
+static_cast
+struct
+switch
+template
+this
+thread_local
+throw
+true
+try
+typedef
+typeid
+typename
+union
+unsigned
+using
+virtual
+void
+volatile
+wchar_t
+while
+xor
+xor_eq
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+SPECIAL IDENTIFIERS IN C++ :
+
+C++ also defines special identifiers: override, final, import, and module. 
+These have a specific meaning when used in certain contexts but are not reserved.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+The C++ compiler generally ignores whitespace, with a few minor exceptions (when processing text literals). 
+For this reason, we say that C++ is a whitespace-independent language.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+FORMATTING CODE :
+
+If a long line is split with an operator (eg. << or +), the operator should be placed at the beginning of 
+the next line, not the end of the current line.
+
+e.g:
+    >>> std::cout << 3 + 4
+        + 5 + 6
+        * 7 * 8;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Use whitespace to make your code easier to read by aligning values or comments or adding spacing between
+blocks of code.
+
+Harder to read:                    Easier to read:
+
+cost = 57;                         cost          = 57;
+pricePerItem = 24;                 pricePerItem  = 24;
+value = 5;                         value         = 5;
+numberOfItems = 17;                numberOfItems = 17;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Using the automatic formatting feature is highly recommended to keep your code’s formatting style consistent.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+LITERALS AND VARIABLES
+
+--> Literals are values that are inserted directly into the source code. 
+    These values usually appear directly in the executable code (unless they are optimized out).
+
+--> Objects and variables represent memory locations that hold values. These values can be fetched on demand.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+OPERATORS IN C++ :
+
+The number of operands that an operator takes as input is called the operator’s arity. 
+Few people know what this word means, so don’t drop it in a conversation and expect anybody 
+to have any idea what you’re talking about. 
+
+Operators in C++ come in four different arities:
+
+Unary operators : 
+    They act on one operand. An example of a unary operator is the "-" operator. 
+    For example, given -5, operator- takes literal operand 5 and flips its sign to produce new output value -5.
+
+Binary operators :
+    They act on two operands (often called left and right, as the left operand appears on the left side 
+    of the operator, and the right operand appears on the right side of the operator). 
+    
+    An example of a binary operator is the "+" operator. For example, given 3 + 4, 
+    operator+ takes the left operand 3 and the right operand 4 and applies mathematical 
+    addition to produce new output value 7.
+    
+    The insertion (<<) and extraction (>>) operators are binary operators, taking std::cout or std::cin on the left side, 
+    and the value to output or variable to input to on the right side.
+
+
+Ternary operators :
+Ternary operators act on three operands. There is only one of these in C++ (the conditional operator), which we’ll cover later.
+
+Nullary operators :
+They act on zero operands. There is also only one of these in C++ (the throw operator), which we’ll also cover later.
+
+
+Note that some operators have more than one meaning depending on how they are used. 
+--> For example, operator- has two contexts. It can be used in unary form to invert a number’s sign 
+    (e.g. to convert 5 to -5, or vice versa), 
+    or it can be used in binary form to do subtraction 
+    (e.g. 4 - 3).
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Chaining operators
+
+Operators can be chained together such that the output of one operator can be used as the input for another operator. 
+For example, given the following: 
+>>> 2 * 3 + 4   (BODMAS)
+10    
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Return values and side effects
+
+
+--> Most operators in C++ just use their operands to calculate a return value. 
+    For example, -5 produces return value -5 and 2 + 3 produces return value 5. 
+
+--> There are a few operators that do not produce return values (such as delete and throw). We’ll cover what these do later.
+
+--> Some operators have additional behaviors. An operator (or function) that has some observable effect 
+    beyond producing a return value is said to have a side effect. For example, when x = 5 is evaluated, 
+    the assignment operator has the side effect of assigning the value 5 to variable x. 
+
+--> The changed value of x is observable (e.g. by printing the value of x) even after the operator 
+    has finished executing. std::cout << 5 has the side effect of printing 5 to the console. 
+
+--> We can observe the fact that 5 has been printed to the console even after std::cout << 5 has finished executing.
+
+--> Operators with side effects are usually called for the behavior of the side effect rather than for 
+    the return value (if any) those operators produce.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+EXPRESSIONS :
+
+--> An expression is a combination of literals, variables, operators, and function calls that calculates a single value. 
+    The process of executing an expression is called evaluation, and the single value produced is called the result of the expression.
+
+--> Note that expressions do not end in a semicolon, and cannot be compiled by themselves. For example, if you were to try compiling the 
+    expression x = 5, your compiler would complain (probably about a missing semicolon). 
+    
+--> Rather, expressions are always evaluated as part of statements.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+Expression statements
+
+
+--> Fortunately, it’s easy to convert any expression into an equivalent statement. 
+    An expression statement is a statement that consists of an expression followed by a semicolon. 
+
+--> When the expression statement is executed, the expression will be evaluated.
+
+--> Thus, we can take any expression (such as x = 5), and turn it into an expression statement (x = 5;) that will compile.
+    When an expression is used in an expression statement, any return value generated by the expression is discarded (because it is not used).
+
+----------------------------------------------------------------------------------------------------------------------------------
